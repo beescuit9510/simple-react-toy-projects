@@ -1,0 +1,40 @@
+/* basic selectors */
+
+.product {
+}
+a[target] {
+}
+a[target='_blank'] {
+}
+
+a[href="https://google.com"]
+{
+	/* too specified selector can be fragile */
+	color: orange;
+}
+
+a[href*='google'] {
+}
+a[href^='google'] {
+}
+a[href$='google'] {
+}
+
+a[href^='https'][href$='.com'] {
+	color: orange;
+}
+
+/* relational selectors 
+    ups
+    - cleaner marrkup
+    downs
+    - can be fragile
+    - Nat as fast as basic selectors ( but most of time you cannot tell the difference )
+*/
+
+#products p,
+#products > p,
+#products + p,
+#products ~ p {
+	color: orange;
+}

@@ -1,0 +1,11 @@
+p {
+	color: orange;
+}
+#first {
+	color: blue;
+	font-weight: bold;
+}
+
+body{
+	margin: 10px;
+}
