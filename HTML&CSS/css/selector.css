@@ -1,4 +1,6 @@
-/* basic selectors */
+/* basic selectors 
+    ID, Class, Attribute
+*/
 
 .product {
 }
@@ -30,6 +32,11 @@ a[href^='https'][href$='.com'] {
     downs
     - can be fragile
     - Nat as fast as basic selectors ( but most of time you cannot tell the difference )
+
+    premature optimization is the root of all evils
+
+    should use basic selectors such as class 
+    instead of relational selectors 
 */
 
 #products p,
@@ -37,4 +44,110 @@ a[href^='https'][href$='.com'] {
 #products + p,
 #products ~ p {
 	color: orange;
+}
+
+
+/* 
+    Pseudo-class selectors
+    can be fragile
+
+    start with :
+*/
+
+/* p.first, */
+/* article :first-of-type, */
+article p:first-of-type{
+    font-size: 140%;
+    font-style: italic;
+}
+
+article :last-child{
+    font-weight: bolder;
+}
+
+ul li:nth-child(odd){
+    color: deeppink;
+}
+
+a:visited,a:link{
+    color: dodgerblue;
+}
+
+/* should use focus, hover together! */
+a:hover , a:focus{
+    color: deeppink;
+}
+
+
+
+/* 
+    Pseudo-elements selectors
+    can be fragile
+
+    start with ::
+*/
+
+.first-letter{
+    font-size: 140%;
+    font-weight: bold;
+}
+
+
+p::first-letter{
+    font-size: 140%;
+    font-weight: bold;
+}
+
+p::first-line{
+    font-weight: bold;
+}
+
+p::selection{
+    background-color: pink;
+}
+
+::selection{
+    background-color: pink;
+}
+
+p::before{
+    content: "...";
+    display: block;
+}
+
+p::after{
+    content: "...";
+}
+
+
+
+
+/* selector specificity (weight) 
+
+ID #id > Class, Attribute .class > Element h1
+
+do not use !important
+*/
+
+#products{
+    color: green;
+}
+.highlight{
+    color: deepskyblue;
+}
+
+h1{
+    color: greenyellow;
+}
+
+/* h1.highlight#products{
+    color: darkviolet;
+} */
+
+.featured #products{
+    color: darkviolet;
+}
+
+/* way too specific */
+html body #featured h2#products.highlight{
 }
