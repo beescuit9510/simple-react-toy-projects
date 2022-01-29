@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .t{
+            border-collapse: collapse;
+        }
+        .t td, .t th{
+            padding: 10px;
+
+        }
+        .t-header, .t-foot{
+            background-color: #427fef;
+            color: white;
+            font-weight: bold;
+            text-align: left;
+        }
+        .t-body tr:nth-of-type(odd){
+            background-color: #eef7ff;
+            border-bottom: 1px solid #c4dcf3;
+        }
+
+    </style>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            border-radius: 10%;
+            background-color: tomato;
+            box-shadow: 10px 10px 1px lightgray;
+        }
+    </style>
+</head>
+<body>
+    <table class="t">
+        <thead class="t-header">
+            <tr>
+                <th>Country</th>
+                <th>OrderID</th>
+                <th>Other Amount</th>
+            </tr>
+        </thead>
+        <tbody class="t-body">
+            <tr>
+                <td>USA</td>
+                <td>1000</td>
+                <td>$1,300</td>
+            </tr>
+            <tr>
+                <td>USA</td>
+                <td>1001</td>
+                <td>$700</td>
+            </tr>
+            <tr>
+                <td>CA</td>
+                <td>1002</td>
+                <td>$2,000</td>
+            </tr>
+            <tr>
+                <td>CA</td>
+                <td>1003</td>
+                <td>$5,000</td>
+            </tr>
+        </tbody>
+        <tfoot class="t-foot">
+            <tr>
+                <th colspan="2">Total</th>
+                <th>$5,000</th>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+    <div class="box"></div>
+</body>
+</html>
