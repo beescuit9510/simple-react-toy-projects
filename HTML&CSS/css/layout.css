@@ -1,0 +1,58 @@
+/* Layout
+    CSS Box model
+    Sizing elements
+    Overflowing
+    Measurement units
+    Positioning
+    Floating elements
+    FlexBox & Grid layouts
+    Media queries */
+
+
+/* CSS Box model
+    margin collabsing 
+    use margin to seperate elements
+    use padding to add space 
+    between the border and content area of an element 
+*/
+
+p {
+    margin:20px; /*trbl vertical horizontal */
+    padding: 0;
+}
+
+/* Sizing elements 
+    1. the width and height properties are applied to content box
+    2. any padding, border will increase the size of the visible box
+
+    3. box-sizing: border-box;
+    the size of width and height will be applied to be the border box.
+    use universal selector to set Box-sixing:border-box;
+
+    4. width, height properties are only applied to Block level elements such as div
+    display: inline-block;
+    no taking up all the one line like block but having dimension
+    to have no space between inline-block elements 
+    put em next to each other in html ex) <span></span><span></span>
+
+    */
+/* 
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }  
+*/
+.box::before{
+    content: 'hello';
+}
+div.box{
+    width: 100px;
+    height: 100px;
+    background-color: gold;
+}
+span.box{
+    width: 100px;
+    height: 100px;
+    background-color: gold;
+    display: inline-block;
+}
+
