@@ -68,3 +68,34 @@ span.box{
     /* overflow-x: ; */
     /* overflow-y: ; */
 }
+
+
+
+/* Measurement Unit
+    Absolute
+    px
+
+    relative
+    % /relative to the size of the container
+    vw vh /relative to the viewpoint
+    em rem /relative to the font size
+*/
+
+
+/* body{
+    margin: 0;
+} */
+div.measurement-box{
+    width: 100px;
+    height: 100px;
+    width: 50%; /* 50% of the width of the parent element*/
+    height: 100vh; 
+    /*size element according to width or height of the viewpoint
+        when resize the browser the box size also resizes
+        50% of the width of the viewpoint
+    */
+    width: 10em; /*10 x the font size of the current element*/
+    background-color: gold;
+    border-top: 3px solid orange;
+}
+
