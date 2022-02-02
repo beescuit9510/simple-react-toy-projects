@@ -150,7 +150,7 @@ div.measurement-box {
     parent elements don't see floated elements
     parent collapsing, have to clear floats after
     
-    shoulnt use floats for layout anymore
+    shouldnt use floats for layout anymore
     use Flexbox and grid
     
 */
@@ -186,4 +186,88 @@ div.measurement-box {
     /*depending on how we lay things out it gets scroll bars*/
     overflow: hidden;
     /* content may get clipped */
+}
+
+
+
+
+/* Flexible Box Layout (FlexBox)
+    used for laying out elements in one direction
+
+    AXES
+    Main (primary)
+    Cross (secondary)
+
+    Direction:Row
+    Main horizontal
+    Cross vertical
+
+    Direction:Column
+    Cross horizontal
+    Main vertical
+
+    aligning
+
+    properties for flex container
+    justify-content : along the main axis
+    align-items : along the cross axis
+    align-content : use when to position several lines 
+
+    properties for flex item
+
+
+    sizing items : should be applied on flex item 
+    flex-basis (the initial size of a flex item)
+    flex-grow (the growth factor)
+    flex-shrink (the shrink factor)
+    flex shorthand for the above three properties
+*/
+
+.container{
+    border: 3px solid lightgray;
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    /* default behavior of flex container : 
+    when elements do not fit in one line
+    they get smaller to fit in one line 
+    flex-wrap: nowrap;
+    */
+    /* flex-wrap: wrap; */
+    /* align-content: flex-start; */
+}
+
+.flexbox-box{
+    width: 5rem;
+    height: 5rem;
+    background-color: gold;
+    margin: 1rem;
+
+    flex-basis: 5rem;
+    /*the direction we set to is the flex basis translate to 
+    row == width
+    column == height
+    */
+    flex-grow: 1;
+    /* allow items to grow and take up the space available */
+    /* browser is going to take up the entire available space 
+    divided by four slices then
+    allocate two slices to a, one slice to b and c */
+    
+    flex-basis: 25rem;
+    flex-shrink: 1;
+
+    flex: 1 1 15rem; 
+    /*growth factor , flex shrink - flex basis*/
+    /*growth factor , flex shrink,  flex basis*/
+}
+
+.flexbox-box-one{
+    /* flex-basis: 5rem; */
+    /* align-self: flex-end; */
+    /* justify-self: flex-start; */
+    flex-grow: 2;
+    flex-shrink: 0;
 }
