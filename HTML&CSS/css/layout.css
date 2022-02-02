@@ -8,7 +8,6 @@
     FlexBox & Grid layouts
     Media queries */
 
-
 /* CSS Box model
     margin collabsing 
     use margin to seperate elements
@@ -17,8 +16,8 @@
 */
 
 .p {
-    margin:20px; /*trbl vertical horizontal */
-    padding: 0;
+	margin: 20px; /*trbl vertical horizontal */
+	padding: 0;
 }
 
 /* Sizing elements 
@@ -37,65 +36,154 @@
 
     */
 /* 
-    *, *::before, *::after {
-        box-sizing: border-box;
-    }  
 */
-.box::before{
-    content: 'hello';
+*,
+*::before,
+*::after {
+	/* box-sizing: border-box; */
 }
-div.box{
-    width: 100px;
-    height: 100px;
-    background-color: gold;
+.box::before {
+	content: 'hello';
 }
-span.box{
-    width: 100px;
-    height: 100px;
-    background-color: gold;
-    display: inline-block;
+div.box {
+	width: 100px;
+	height: 100px;
+	background-color: gold;
 }
-
-
+span.box {
+	width: 100px;
+	height: 100px;
+	background-color: gold;
+	display: inline-block;
+}
 
 /* Overflow */
 
-.overflow-box{
-    border: 3px solid gold;
-    width: 150px;
-    height: 150px;
-    overflow: hidden auto;
-    /* overflow-x: ; */
-    /* overflow-y: ; */
+.overflow-box {
+	border: 3px solid gold;
+	width: 150px;
+	height: 150px;
+	overflow: hidden auto;
+	/* overflow-x: ; */
+	/* overflow-y: ; */
 }
-
-
 
 /* Measurement Unit
     Absolute
     px
 
     relative
-    % /relative to the size of the container
-    vw vh /relative to the viewpoint
-    em rem /relative to the font size
+    % : relative to the size of the container
+    vw vh : relative to the viewpoint
+    em : relative to 10 x the font size of the current element
+    rem : relative to 10 x the font size of the root element
 */
 
-
-/* body{
-    margin: 0;
-} */
-div.measurement-box{
-    width: 100px;
-    height: 100px;
-    width: 50%; /* 50% of the width of the parent element*/
-    height: 100vh; 
-    /*size element according to width or height of the viewpoint
+html {
+	/* 62.5% 0f 16px = 10px */
+	font-size: 62.5%;
+}
+body {
+	/* margin: 0; */
+}
+div.measurement-box {
+	width: 100px;
+	height: 100px;
+	width: 50%; /* 50% of the width of the parent element*/
+	height: 100vh;
+	/*size element according to width or height of the viewpoint
         when resize the browser the box size also resizes
         50% of the width of the viewpoint
     */
-    width: 10em; /*10 x the font size of the current element*/
-    background-color: gold;
-    border-top: 3px solid orange;
+
+	/* font-size: 20px; */
+	width: 10em; /*10 x the font size of the current element*/
+	/* this element has no font-size so its going to inherit from
+    HTML and all browser has default HTML fontsize 0f 16px */
+	width: 15rem; /*10 x the font size of the root element*/
+	/* font-size: 62.5%; == 10 px makes calculation easier */
+	background-color: gold;
+	border-top: 3px solid orange;
 }
 
+/* positioning 
+    relative : relative to the elements' normal position
+    ab solute : relative to the parent (position: relative)
+    fixed : relative to viewpoint
+*/
+
+.positioning-boxes {
+	border: 3px solid lightgray;
+	/* position: relative; */
+}
+
+.positioning-box {
+	width: 5rem;
+	height: 5rem;
+}
+.box-one {
+	background-color: gold;
+}
+.box-two {
+	background-color: tomato;
+	/* position: relative;  */
+	/*position element relative to the original (static) position*/
+	/* z-index: -1; */
+	/* the higher number the higher that the element will move up the Zed axis */
+
+	position: absolute;
+	/* that element is removed from the normal flow of the paeg
+    which means from the parents point of view, that element dosen't exist
+    it's on a seperate layer. */
+	top: 0;
+	left: 2rem;
+	right: 2rem;
+	width: auto;
+}
+.box-third {
+	background-color: dodgerblue;
+}
+
+
+
+/* floating 
+    parent elements don't see floated elements
+    parent collapsing, have to clear floats after
+    
+    shoulnt use floats for layout anymore
+    use Flexbox and grid
+    
+*/
+
+.avatar {
+    width: 5rem;
+    height: 5rem;
+    background-color: gold;
+    float: left;
+    margin-right: 0.5rem;
+}
+.tweet {
+    border: 3px solid lightgray;
+}
+
+
+/* 1. add an empty div to clear the float property */
+.clear {
+	/* clear: both; */
+}
+
+/* 2. use Pseudo-elements ::after  */
+/* .tweet::after,  */
+.clearfix::after{
+    content: ''; /* No content */
+    display: block; /* ::after is by default an inline element */
+    clear: both;
+}
+
+/* 3. use oveflow property */
+.tweet{
+    overflow: auto; 
+    /*depending on how we lay things out it gets scroll bars*/
+    overflow: hidden;
+    /* content may get clipped */
+}
