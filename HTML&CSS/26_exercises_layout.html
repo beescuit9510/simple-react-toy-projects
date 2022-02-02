@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .navi-bar{
+            background-color: black;
+            padding: .7rem
+        }
+        .navi-bar ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            list-style-type: none;
+        }
+        .navi-bar li{
+            margin: .5rem 0;
+        }
+        a{
+            font-family: Arial, Helvetica, sans-serif;
+            color: white; 
+            text-decoration: none;
+        }
+        
+        @media screen and (min-width: 768px) {
+            .navi-bar ul{
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+
+            .navi-bar li {
+                margin: 0 1rem;
+            }
+
+        }
+
+
+
+        img{
+            object-fit: cover;
+            width: 100%;
+        }
+
+        section.photo-gallary{
+            display: grid;
+            grid-template: repeat(9,30fr) / repeat(1,90fr);
+            justify-items: center;
+            gap: 10px;
+        }
+        
+        @media screen and (min-width: 768px) {
+            section.photo-gallary{
+                grid-template: repeat(5,30fr) / repeat(2,5fr);
+                gap: 10px;
+            }
+            section.photo-gallary img:nth-of-type(odd){
+                justify-self: end;
+            }
+            section.photo-gallary img:nth-of-type(even){
+                justify-self: start;
+            }
+            
+        }
+
+
+        @media screen and (min-width: 1024px) {
+            section.photo-gallary{
+                position: relative;
+                left: 20%;
+                width: 60vw;
+                grid-template: repeat(5,30fr) / repeat(3,20fr);
+                gap: 10px;
+            }
+            section.photo-gallary img:nth-of-type(odd),section.photo-gallary img:nth-of-type(even){
+                justify-self: center;
+            }
+            section.photo-gallary img:first-child{
+                grid-column: 2/4;
+                grid-row: 1/3;
+                width: 40vw;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navi-bar">
+        <ul>
+            <li><a href="">About</a></li>
+            <li><a href="">Courses</a></li>
+            <li><a href="">Forum</a></li>
+            <li><a href="">Learning Paths</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="photo-gallary">
+        <img src="Img/cat.jpg" alt="cat"/>
+        <img src="Img/cat.jpg" alt="cat"/>
+        <img src="Img/cat.jpg" alt="cat"/>
+        <img src="Img/cat.jpg" alt="cat"/>
+        <img src="Img/cat.jpg" alt="cat"/>
+        <img src="Img/cat.jpg" alt="cat"/>
+        <img src="Img/cat.jpg" alt="cat"/>
+        <img src="Img/cat.jpg" alt="cat"/>
+        <img src="Img/cat.jpg" alt="cat"/>
+    </section>
+</body>
+</html>
