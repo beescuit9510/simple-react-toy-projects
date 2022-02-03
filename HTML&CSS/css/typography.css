@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'opensans';
+    src: url('fonts/open-sans/opensans-regular-webfont.woff2') format('woff2'),
+    url('fonts/open-sans/opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'opensans';
+    src: url('fonts/open-sans/opensans-bold-webfont.woff2') format('woff2'),
+    url('fonts/open-sans/opensans-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+/* embeded code should be at the very top */
+
+/* 
+Typograhpy
+-Styling fonts
+-Embedding custom fonts
+-Using font services
+-Formatting text */
+
+
+/* Embedding Web Fonts
+
+    font files come in different formats like imgs and videos
+    TTF
+    OTF
+    EOT
+    WOFF
+    WOFF 2.0
+
+    Use WOFF/WOFF 2.0 more compressed and efficient for web
+
+*/
+
+
+
+/* Font 
+    Serif
+    -small line or stroke at the end of characters
+
+    Sans-serif
+    -modern
+
+    Monospace
+
+*/
+body{
+    margin: 10px;
+    font-family: "opensans";
+}
+
+p{
+    font-weight: normal;
+    /* font-style: italic; */
+    font-size: 1rem;
+    color: #111;
+}
