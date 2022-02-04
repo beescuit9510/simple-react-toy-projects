@@ -4,6 +4,12 @@
     url('fonts/open-sans/opensans-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    /* font-display: auto; */
+    /* font-display: swap; */
+    /* font-display: fallback; */
+    /* font-display: block; */ 
+    /* do not use block !!*/
+    font-display: optional;
 }
 
 @font-face {
@@ -25,7 +31,7 @@ Typograhpy
 
 /* Embedding Web Fonts
 
-    font files come in different formats like imgs and videos
+font files come in different formats like imgs and videos
     TTF
     OTF
     EOT
@@ -34,11 +40,11 @@ Typograhpy
 
     Use WOFF/WOFF 2.0 more compressed and efficient for web
 
-*/
+    */
 
 
-
-/* Font 
+    
+    /* Font 
     Serif
     -small line or stroke at the end of characters
 
@@ -59,3 +65,71 @@ p{
     font-size: 1rem;
     color: #111;
 }
+
+/*  Flash of Unstyled Text
+    font-display: auto;
+    font-display: swap;
+    font-display: fallback;
+    font-display: block;
+    font-display: optional;
+*/
+    /* do not use block !!*/
+
+
+/* Font Services
+    Google Web Fonts
+    Adobe Fonts
+    fonts.com
+    fontdeck.com
+    fontsquirrel
+*/
+
+/* System Font Stack
+    No need to download
+    but different OS uses different font
+*/
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+
+/* Sizing Fonts 
+    Cannot rely on px due to lack of consistency(Retina Display)
+
+    Relatvie Units
+    %
+    vw, vh
+    em
+    rem
+
+    most of people's default fontsize is medium(16px)
+
+    when start new projects
+    go to type-scale.com and find the right size for headings
+*/
+
+html{
+    /* 62.5% of 16px  = 10px */
+    font-size: 62.5%;
+}
+
+body{
+    /* 1 x font size of the root element(html) */
+    /* 1.5 x 16px can be tricky thats why we set html{font-size:62.5%;}*/
+    font-size: 1.5rem;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+@media screen and (min-width:450px) {
+    html{
+        font-size: 130%;
+    }
+}
+
+
+
+/* Vertical Spacing */
