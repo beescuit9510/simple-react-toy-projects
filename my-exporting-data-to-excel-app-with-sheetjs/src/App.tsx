@@ -1,43 +1,24 @@
-import React, { FC, useEffect, useState } from 'react';
-import './App.css';
-import * as XLSX from 'xlsx';
-
-const useFetch = (url: string): object[] => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((json) => setData(json));
-  }, [url]);
-
-  return data;
-};
-
-interface Props {
-  url: string;
-}
-
-const Download: FC<Props> = ({ url }: Props): JSX.Element => {
-  const data: object[] = useFetch(url);
-
-  const wb: XLSX.WorkBook = XLSX.utils.book_new();
-
-  const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
-
-  XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-
-  const download = () => {
-    XLSX.writeFile(wb, 'Test.xlsx');
-  };
-
-  return <button onClick={download}>다운로드</button>;
-};
+import { FC } from 'react';
+import Download, { Sheet, Excel } from './Download';
 
 const App: FC = (): JSX.Element => {
-  const url = 'https://jsonplaceholder.typicode.com/users';
+  const sheet: Sheet = {
+    url: 'https://jsonplaceholder.typicode.com/users',
+    title: 'sheet1',
+    data: [],
+  };
+  const sheet2: Sheet = {
+    url: 'https://jsonplaceholder.typicode.com/posts',
+    title: 'sheet2',
+    data: [],
+  };
 
-  return <Download url={url} />;
+  const excel: Excel = {
+    sheets: [sheet, sheet2],
+    title: 'test.xlsx',
+  };
+
+  return <Download {...excel} />;
 };
 
 export default App;
