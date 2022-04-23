@@ -3,11 +3,11 @@ import * as XLSX from 'xlsx';
 
 export interface Excel {
   sheets: Sheet[];
-  title: string;
+  readonly title: string;
 }
 
 export interface Sheet {
-  data: object[];
+  data?: object[];
   readonly url: string;
   readonly title: string;
 }
@@ -25,9 +25,11 @@ const fetchData = async (sheet: Sheet) => {
 const createSheet = async (sheet: Sheet, workBook: XLSX.WorkBook) => {
   await fetchData(sheet);
 
-  const workSheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(sheet.data);
+  if (sheet.data !== null && sheet.data !== undefined) {
+    const workSheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(sheet.data);
 
-  XLSX.utils.book_append_sheet(workBook, workSheet, sheet.title);
+    XLSX.utils.book_append_sheet(workBook, workSheet, sheet.title);
+  }
 };
 
 const Download: FC<Excel> = ({ sheets, title }: Excel): JSX.Element => {
