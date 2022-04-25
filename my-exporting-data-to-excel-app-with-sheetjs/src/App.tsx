@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import Download, { Sheet, Excel } from './Download';
+import Download, { Sheet, Excel, pickSheet } from './Download';
 import ExcelTable from './ExcelTable';
 
 const App: FC = (): JSX.Element => {
-  const sheet: Sheet = {
+  const sheet: pickSheet = {
     url: 'https://jsonplaceholder.typicode.com/users',
     title: 'sheet1',
   };
-  const sheet2: Sheet = {
+  const sheet2: pickSheet = {
     url: 'https://jsonplaceholder.typicode.com/posts',
     title: 'sheet2',
   };
